@@ -26,9 +26,14 @@ $(document).ready(function(e){
     <script type="text/javascript">
        $(document).ready(function(e){
           $.getJSON("https://www.googleapis.com/books/v1/volumes?q=tech", function(json){
+              var tableRow = $("#table").append("<tr></tr>");
                 $.each(json.items, function(i, item){
-              // alert(item.volumeInfo.imageLinks.smallThumbnail);
-                 $("#table tr").append("<td><img src='" + item.volumeInfo.imageLinks.smallThumbnail + "' /></td>");
+                  tableRow = $("#table tr:last");
+                  tableRow.append("<td><img class ='img-responsive' src='" + item.volumeInfo.imageLinks.smallThumbnail + "' /></td>");
+                  if(i > 0 && i % 6 == 0){ 
+                    $("#table").append("<tr></tr>")
+                   
+                  }
               });
           });
       });
@@ -44,46 +49,21 @@ $(document).ready(function(e){
       <h2>Books</h2>
       <h5>Titles A-M</h5>
     </header>
-    <!--table for pictures row 1 -->
-     <!-- <table class="table" id=table>
-      <div class="row">
-        <div class="col-md-2 col-md-offset-.5">
-          <img class="img-responsive" src="/images/test.JPG.jpg" />
-        </div>
-
-        <div class="col-md-2">
-          <img class="img-responsive" src="/images/test.JPG.jpg" />
-        </div>
-
-        <div class="col-md-2">
-          <img class="img-responsive" src="/images/test.JPG.jpg" />
-        </div>
-
-        <div class="col-md-2">
-          <img class="img-responsive" src="/images/test.JPG.jpg" />
-        </div>
-
-        <div class="col-md-2">
-          <img class="img-responsive" src="/images/test.JPG.jpg" />
-        </div>
-
-        <div class="col-md-2">
-          <img class="img-responsive" src="/images/test.JPG.jpg" />
-        </div>  -->
 
 
         <table class="table" id="table">
-           
-            <thead>
-              <tr>
-                
-              </tr>
-              </thead>
-              </div>
-
+          
+        </table>
         <!-- show more button row 1 -->
         <button type="button" class="btn btn-primary btn-xs center-block">Show More</button>
-    </table>
+   
+
+
+
+
+
+
+        
   <!-- titles N-Z -->
     <div>
         <h5>Titles N-Z</h5>
