@@ -5,3 +5,7 @@
 #HeadingBG{
 background-color: blue;
 }
+
+.tableResult{
+display: none;
+}
