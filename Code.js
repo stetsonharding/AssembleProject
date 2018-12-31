@@ -1,5 +1,6 @@
 $(document).ready(function (e) {
     $("#tableButton").click(function () {
+        // Iterating table rows
         $("#table tr").each(function (i, row) {
             if (i != 0) {
                 if ($("#tableButton").html() == "Show Less") {
@@ -8,10 +9,10 @@ $(document).ready(function (e) {
                 else {
                     $(row).show();
                 }
-
-            }
+           }
 
         });
+        // Changing button state
         if ($("#tableButton").html() == "Show More") {
             $("#tableButton").html("Show Less");
         }
@@ -27,8 +28,8 @@ $(document).ready(function (e) {
         var maxColumns = 4;
         var tableRow = $("#table").append("<tr> </tr>");
         var tableRowTwo = $("#table2").append("<tr></tr>");
-        var results = json["items"];
-        results.sort(function (a, b) {
+        var items = json["items"];
+        items.sort(function (a, b) {
             if (a.volumeInfo.title == b.volumeInfo.title) {
                 return 0;
             }
@@ -39,13 +40,21 @@ $(document).ready(function (e) {
                 return 1;
             }
         });
-        $.each(results, function (i, item) {
+        $.each(items, function (i, item) {
 
-
-            var firstChar = item.volumeInfo.title[0];
-            if (firstChar >= 'A' && firstChar <= 'M') {
+            var firstChar = item.volumeInfo.title[0].toLowerCase();
+            if (firstChar >= 'a' && firstChar <= 'm') {
                 tableRow = $("#table tr:last");
-                tableRow.append("<td><img class ='img-responsive' src='" + item.volumeInfo.imageLinks.smallThumbnail + "' /></td>");
+                tableRow.append(
+                "<td>" +
+                "<div class='card'>" +
+                        "<img class ='img-responsive' src='" + item.volumeInfo.imageLinks.smallThumbnail + "' />" +
+                    "<div class='card-body'>" +
+                       "<h5 class='card-title'> "+ item.volumeInfo.title.substr(0, 17) + "</h5>" +
+                       "<p class='card-text'>"+ item.volumeInfo.authors[0] + "</p>" +
+                    "</div>" +
+                "</div>" +
+                "</td>");
                 if ($("#table tr:last td").length == maxColumns) {
                     $("#table").append("<tr class='tableResult'></tr>")
                 }
