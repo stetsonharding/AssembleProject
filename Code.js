@@ -49,6 +49,7 @@ $(document).ready(function (e) {
         //calling my table(s) and placing table row(s), inside the tables.
         var tableRow = $("#table").append("<tr> </tr>");
         var tableRowTwo = $("#table2").append("<tr></tr>");
+        
         //calling my json function, and getting all the items inside the json and placeing json items inside "items" variable
         //sorting titles ****QUESTION****
         var items = json["items"];
@@ -63,7 +64,7 @@ $(document).ready(function (e) {
                 return 1;
             }
         });
-        //for each title in json items place the title into the assigned row depenging on the if statement
+        //for each item in json items place the item into the assigned row depenging on the if statement
         $.each(items, function (i, item) {
             var firstChar = item.volumeInfo.title[0].toLowerCase();
             if (firstChar >= 'a' && firstChar <= 'm') {
@@ -100,11 +101,19 @@ $(document).ready(function (e) {
                     "</div>" +
                     "</div>" +
                     "</td>");
+
                 if ($("#table2 tr:last td").length == maxColumns) {
                     $("#table2").append("<tr class='tableResult'></tr>")
                 }
+
             }
 
+            //footer
+           var footerLink = $("#footerUnorderedList");
+            footerLink.append(
+                 "<li>" +
+                "<a href='" + item.volumeInfo.previewLink + "'>"+item.volumeInfo.title+"</a>" +
+                 "</li>");
         });
 
     });
