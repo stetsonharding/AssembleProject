@@ -20,7 +20,6 @@ $(document).ready(function (e) {
             $("#tableButton").html("Show More")
         }
     });
-
     //button two handling
     $("#tableButtonRow2").click(function () {
         // Iterating table rows
@@ -42,14 +41,13 @@ $(document).ready(function (e) {
             $("#tableButtonRow2").html("Show More")
         }
     });
-
     //getting jason
     $.getJSON("https://www.googleapis.com/books/v1/volumes?q=tech", function (json) {
         var maxColumns = 4;
         //calling my table(s) and placing table row(s), inside the tables.
         var tableRow = $("#table").append("<tr> </tr>");
         var tableRowTwo = $("#table2").append("<tr></tr>");
-        
+
         //calling my json function, and getting all the items inside the json and placeing json items inside "items" variable
         //sorting titles ****QUESTION****
         var items = json["items"];
@@ -101,24 +99,28 @@ $(document).ready(function (e) {
                     "</div>" +
                     "</div>" +
                     "</td>");
-
                 if ($("#table2 tr:last td").length == maxColumns) {
+                    document.getElementById('tableButtonRow2').style.visibility = 'hidden';
                     $("#table2").append("<tr class='tableResult'></tr>")
+                }
+                else {
+                    document.getElementById('tableButtonRow2').style.visibility = 'visible';
                 }
 
             }
 
             //footer
-           var footerLink = $("#footerUnorderedList");
+            var footerLink = $("#footerUnorderedList");
             footerLink.append(
-                 "<li>" +
-                "<a href='" + item.volumeInfo.previewLink + "'>"+item.volumeInfo.title+"</a>" +
-                 "</li>");
+                "<li>" +
+                "<a href='" + item.volumeInfo.previewLink + "'>" + item.volumeInfo.title + "</a>" +
+                "</li>");
+
+
         });
 
     });
 });
-
 
 
 
