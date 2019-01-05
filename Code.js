@@ -8,7 +8,7 @@ function insertBookInRow(table, item) {
     //if the last td size is more than 4, create another row
     if (table.find("tr:last td").length == maxColumns) {
         //create new row if >4 td
-        table.append("<tr class='tableResult'></tr>");
+        table.append("<tr ></tr>");
     }
     else {
         // show button if table2 td is >5
@@ -37,7 +37,7 @@ function insertBookInRow(table, item) {
         //if the last td size is more than 3, create another row
         if (table.find("tr:last td").length == maxLinkColumns) {
             //create new row if >3 td
-            table.append("<tr class='tableResult'></tr>");
+            table.append("<tr></tr>");
         }
      
         let tableRow = table.find("tr:last");

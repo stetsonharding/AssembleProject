@@ -9,3 +9,7 @@ background-color: blue;
 .tableResult{
 display: none;
 }
+
+.container {
+   min-height:1200px !important;
+}
