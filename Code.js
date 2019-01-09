@@ -8,7 +8,7 @@ function insertBookInRow(table, item) {
     //if the last td size is more than 4, create another row
     if (table.find("tr:last td").length == maxColumns) {
         //create new row if >4 td
-        table.append("<tr ></tr>");
+        table.append("<tr class='tableResult'></tr>");
     }
     else {
         // show button if table2 td is >5
@@ -19,12 +19,12 @@ function insertBookInRow(table, item) {
         "<td>" +
         "<div class='card'>" +
         //gets json image and place the image inside the last tr
-        "<img class ='img-responsive' src='" + smallThumbnail + "' />" +
+        "<img class ='img-responsive img-rounded' src='" + smallThumbnail + "' />" +
         "<div class='card-body'>" +
         //gets title of the book
         "<h5 class='card-title'> " + title + "</h5>" +
         //gets author of the book
-        "<p class='card-text'>" + author + "</p>" +
+        "<p class='card-text' >" + "<b>by</b> " + author + "</p>" +
         "</div>" +
         "</div>" +
         "</td>");
@@ -44,7 +44,7 @@ function insertBookInRow(table, item) {
         tableRow.append(
              //footer
                 "<td>" +
-                "<a href='" + item.volumeInfo.previewLink + "'>" + item.volumeInfo.title + "</a>" +
+                "<a href='" + footerLink + "'>" + title + "</a>" +
                 "</td>");
         }
     

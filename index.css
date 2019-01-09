@@ -10,6 +10,28 @@ background-color: blue;
 display: none;
 }
 
-.container {
-   min-height:1200px !important;
+
+h5{
+   font-weight: bold;
+}
+
+
+.table, .table td { 
+   border-top: none !important; 
+   
+}
+
+header{
+   background-color:#cccccc;;
+   
+}
+
+.table-alignment{
+   margin:auto;
+   width: 80%;
+   padding: 10px;
+}
+
+footer{
+   background-color: #cccccc;
 }
