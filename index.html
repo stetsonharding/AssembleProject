@@ -4,176 +4,71 @@
 <head>
   <title>Assemble Book Store</title>
   <meta charset="utf-8">
- 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="index.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
-<!-- <script type="text/javascript">
-$(document).ready(function(e){
-    $.getJSON("_books.json",function(json){
-      jQuery.each(json.items, function(i, val) {
-               alert(val.volumeInfo.imageLinks.smallThumbnail);
-           });
-    });
-}); 
-</script> -->
-
-<!-- javascript to read json books into html -->
-    <script type="text/javascript">
-       $(document).ready(function(e){
-          $.getJSON("https://www.googleapis.com/books/v1/volumes?q=tech", function(json){
-                $.each(json.items, function(i, item){
-              // alert(item.volumeInfo.imageLinks.smallThumbnail);
-                 $("#table tr").append("<td><img src='" + item.volumeInfo.imageLinks.smallThumbnail + "' /></td>");
-              });
-          });
-      });
-    </script>
+  <script src=Code.js type="text/javascript"></script>
 </head>
 
+
 <body>
-  <!-- container start -->
   <div class="container">
-    <div class="col-md-12" style="background-color:#d2cece;"><h5>Assemble Books</h5></div>
-    <!-- book header and titles A-M -->
-    <header class="test">
-      <h2>Books</h2>
-      <h5>Titles A-M</h5>
+    <header>
+      <h5>Assemble Books</h5>
     </header>
-    <!--table for pictures row 1 -->
-     <!-- <table class="table" id=table>
-      <div class="row">
-        <div class="col-md-2 col-md-offset-.5">
-          <img class="img-responsive" src="/images/test.JPG.jpg" />
-        </div>
 
-        <div class="col-md-2">
-          <img class="img-responsive" src="/images/test.JPG.jpg" />
-        </div>
+   
+<div class="container">
+  <div class="table-alignment">
+    
+ <!-- "books" and titles A-M -->
+ <div class="books">
+    <h2>Books</h2>
+    <h5>Titles A-M</h5>
+  </div>
 
-        <div class="col-md-2">
-          <img class="img-responsive" src="/images/test.JPG.jpg" />
-        </div>
-
-        <div class="col-md-2">
-          <img class="img-responsive" src="/images/test.JPG.jpg" />
-        </div>
-
-        <div class="col-md-2">
-          <img class="img-responsive" src="/images/test.JPG.jpg" />
-        </div>
-
-        <div class="col-md-2">
-          <img class="img-responsive" src="/images/test.JPG.jpg" />
-        </div>  -->
-
-
-        <table class="table" id="table">
-           
-            <thead>
-              <tr>
-                
-              </tr>
-              </thead>
-              </div>
-
-        <!-- show more button row 1 -->
-        <button type="button" class="btn btn-primary btn-xs center-block">Show More</button>
+    <!-- table 1 -->
+    <table class="table" id="table">
+      <tr></tr>
     </table>
-  <!-- titles N-Z -->
+
+    <!-- show more/less button row 1 -->
+    <button type="button" class="btn btn-primary btn-xs center-block" id="tableButton">Show More</button>
+
+    <!-- titles N-Z -->
     <div>
-        <h5>Titles N-Z</h5>
+      <h5>Titles N-Z</h5>
     </div>
-    <!--table for pictures row 2 -->
-    <table class="table">
-      <div class="row">
-        <div class="col-md-2 col-md-offset-.5">
-          <img class="img-responsive" src="/images/test.JPG.jpg" />
-        </div>
 
-        <div class="col-md-2">
-          <img class="img-responsive" src="/images/test.JPG.jpg" />
-        </div>
-
-        <div class="col-md-2">
-          <img class="img-responsive" src="/images/test.JPG.jpg" />
-        </div>
-
-        <div class="col-md-2">
-          <img class="img-responsive" src="/images/test.JPG.jpg" />
-        </div>
-
-        <div class="col-md-2">
-          <img class="img-responsive" src="/images/test.JPG.jpg" />
-        </div>
-
-        <div class="col-md-2">
-          <img class="img-responsive" src="/images/test.JPG.jpg" />
-        </div>
-
-        <!-- show more button row 2 -->
-        <button type="button" class="btn btn-primary btn-xs center-block">Show More</button>
+    <!--table2 -->
+    <table class="table" id="table2">
+      <tr></tr>
     </table>
+ 
+    <!-- show more/ess button row 2 -->
+    <button type="button" class="btn btn-primary btn-xs center-block" id="tableButtonRow2">Show More</button>
+  </div>
+</div>
 
-<!-- footer  -->
-        <!-- left colum -->
     <footer>
-      <div id ="footerBgColor">
-      <div class="row">
-        <div class="col-sm-3">Assemble Books</div>
-        <!-- right colum -->
-        <div class="col-sm-9">
-          <table class="table">
-            <thead>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-3 col-md-3">
+            <p>Assemble Books</p>
+          </div>
+          <div class="col-sm-9 col-md-9">
+            <table class="table" id="footerTable">
               <tr>
-                <th>Link</th>
-                <th>Link</th>
-                <th>Link</th>
               </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Link</td>
-                <td>Link</td>
-                <td>Link</td>
-              </tr>
-              <tr>
-                <td>Link</td>
-                <td>Link</td>
-                <td>Link</td>
-              </tr>
-            </tbody>
-          </table>
+            </table>
+            -
+          </div>
         </div>
       </div>
-      </div> 
     </footer>
   </div>
 </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </html>
